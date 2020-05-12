@@ -1,0 +1,29 @@
+<div class="row">
+    {{#each notes}}
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class = "card-title"> 
+                    {{ nombre }}
+                </h4>
+                <p>{{ n_hijos }}</p>
+                <p>{{  nombre_hijos }}</p>
+                <p>{{  problema }}</p>
+               <!-- <form action="/notes/delete/{{_id}}?_method=DELETE" method = "POST"> -->
+                   <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                 <!--   <button class= "btn btn-danger btn-block btn-sm" type="submit"> -->
+                  <!--  Delete -->
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <p class= "lead">No hay súbditos aún</p>
+            <a href="/notes/add" class= "btn btn-success btn-block"> Inserta un nuevo súbdito</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
