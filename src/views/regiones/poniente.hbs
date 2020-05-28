@@ -1,0 +1,18 @@
+<div class="container pb-5 ">
+    <div class="row my-3">
+        {{#each regiones}}
+            <div class="col-md-3 my-3">
+                <div class="card mr-0" style="height: 430px;">
+                    <div class="card-body p-0">
+                        <img src="images/{{capital}}.png" alt="" class="card-img-top" height="300px">
+                        <h4 class="card-tittle text-center pt-2" style="color: crimson;">                            
+                            {{nombre}}                            
+                        </h4>
+                        <p class="text-center mb-0 font-weight-italic"> <span class="font-weight-bold">Capital: </span>{{capital}}</p>                        
+                        <p class="text-center"><span class="font-weight-bold">Region: </span> {{region}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

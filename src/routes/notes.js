@@ -44,6 +44,7 @@ router.get('/notes', async (req, res) => {
         const contexto = {
             notes: documentos.map(documento => {
             return {
+                _id: documento._id,
                 nombre: documento.nombre,
                 n_hijos: documento.n_hijos,
                 nombre_hijos: documento.nombre_hijos,
@@ -56,9 +57,31 @@ router.get('/notes', async (req, res) => {
       })
   })
 
+  router.get('/notes/edit/:id', async (req, res) => {
+
+    const note = await Note.findById(req.params.id)
+    .then(data =>{
+        return {
+            nombre:data.nombre,
+            n_hijos: data.n_hijos,
+            nombre_hijos:data.nombre_hijos,
+            problema: data.problema,
+            id:data.id
+        }
+    })
+    res.render('notes/edit-notes',{note})
+});
+
+router.put('/notes/edit-notes/:id', async (req, res) =>{
+    const {nombre,n_hijos,nombre_hijos,problema} = req.body;
+     await Note.findByIdAndUpdate(req.params.id,{nombre,n_hijos,nombre_hijos,problema});
+     res.redirect('/notes');
+});
+
   router.delete('/notes/delete/:id', async (req,res)=>{
     await Note.findByIdAndDelete(req.params.id);
     res.redirect('/notes');
   })
+
 
 module.exports = router;

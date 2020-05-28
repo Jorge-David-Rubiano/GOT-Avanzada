@@ -3,6 +3,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const Handlebars = require('handlebars');
 // Inicializaciones
  const app = express();
  require('./database');
@@ -14,6 +16,7 @@ app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts') ,
     partialsDir: path.join(app.get('views'), 'partials'),
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
     extname: '.hbs'
 }));
 app.set('view engine', '.hbs');
@@ -34,6 +37,9 @@ app.use(session({
  app.use(require('./routes/notes'));
  app.use(require('./routes/users'));
  app.use(require('./routes/dragones'));
+ app.use(require('./routes/regiones'));
+ app.use(require('./routes/casas'));
+ app.use(require('./routes/soldados'));
 
  // Archivos Estaticos
  app.use(express.static(path.join(__dirname, 'public')));

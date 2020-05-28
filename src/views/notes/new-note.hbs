@@ -15,18 +15,18 @@
         <div class="card-body">
             <form action="/notes/new-note" method="POST">
                 <div class="form-group">
-                    <input type="text" name="nombre" class="form-control" autofocus>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="n_hijos" class="form-control" </div>
+                    <input type="text" name="n_hijos" placeholder="Numero Hijos" class="form-control mt-3" </div>
                     <div class="form-group">
-                        <input type="text" name="nombre_hijos" class="form-control"  </div>
+                        <input type="text" name="nombre_hijos" placeholder="Nombre Hijos" class="form-control mt-3"  </div>
                         <div class="form-group">
-                            <textarea name="problema" class="form-control" ></textarea>
+                            <textarea name="problema" class="form-control mt-3" rows="5" style="resize: none;" placeholder="Petición"></textarea>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="Submit">
-                                <GUARDAR>
+                            <button class="btn btn-primary btn-block p-3" type="Submit">
+                                <GUARDAR> Guardar
                             </button>
                         </div>
             </form>

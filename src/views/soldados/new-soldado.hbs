@@ -1,0 +1,36 @@
+{{#each errors}}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3> Soldados </h3>
+        </div>
+        <div class="card-body">
+            <form action="/soldados/new-soldado" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="especialidad" placeholder="Especialidad" class="form-control mt-3" </div>
+                    <div class="form-group">
+                        <input type="text" name="cargo" placeholder="Cargo" class="form-control mt-3"  </div>
+                       <div class="form-group">
+                    <input type="text" name="asesinatos" placeholder="Asesinatos" class="form-control mt-3" </div>
+                    <div class="form-group">
+                    <input type="text" name="interes" placeholder="Interés" class="form-control mt-3" </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block p-3" type="Submit">
+                                <GUARDAR> Guardar
+                            </button>
+                        </div>
+            </form>
+        </div>
+    </div>
+</div>
